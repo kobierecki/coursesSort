@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var semesters = [
+        {"name": "2019/20"},
+        {"name": "2018/19"},
+        {"name": "2017/18"},
+        {"name": "2016/17"},
+        {"name": "2015/16"}
+    ];
+
+    var courses = [
+        {"name": "course1", "semester": "2019/20"},
+        {"name": "course2", "semester": "2019/20"},
+        {"name": "course3", "semester": "2018/19"},
+        {"name": "course4", "semester": "2016/17"},
+        {"name": "course5", "semester": "2016/17"},
+    ];
+
+
+    var array = null;
+    array = {};
+
+    function sortCourses(array){
+        semesters.forEach((element) => {
+            array[element["name"]] = [];
+        });
+
+        arraySize = Object.keys(array).length;
+
+        courses.forEach((element) => {
+            for (let i = 0; i < arraySize; i++) {
+                if (element["semester"] == Object.keys(array)[i]){
+                    Object.values(array)[i].push(courses[0]);
+                }
+            }
+        });
+        return array;
+    }
+    array = sortCourses(array);
+    console.log(array);
+
+    /*
+    array = {
+    "2019/20": [
+    {"name": "course1"},
+    {"name": "course2"}
+    ],
+    "2018/19": [
+    {"name": "course3"}
+    ],
+    "2017/18": [],
+    "2016/17": [
+    {"name": "course4"},
+    {"name": "course5"}
+    ],
+    "2015/16": [],
+    }
+    */
+</script>
+</body>
+</html>
